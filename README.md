@@ -86,7 +86,9 @@ Depois de gerar essas expressões, explodimos as listas de n-grams, assim como f
 ![image](https://github.com/thomz2/big-data-spark/assets/82160387/55df194b-b0f8-4c25-aaab-08006ca18354)
 
 #### Principais tópicos relacionados às revisões
-Jaja sai
+Para encontrar os principais tópicos relacionados às revisões, começamos lematizando as palavras do texto. Utilizamos a biblioteca NLTK para isso, especialmente o WordNetLemmatizer, que reduz as palavras à sua forma base. Em seguida, organizamos as palavras lematizadas em uma lista de palavras. 
+
+Após essa etapa, vetorizamos essas palavras utilizando o CountVectorizer do Spark, transformando-as em características vetoriais. Então, aplicamos o modelo de Análise de Tópicos Latentes (LDA) para identificar os tópicos mais relevantes presentes nos dados de revisões. Finalmente, mapeamos os termos mais importantes de cada tópico de volta para as palavras originais usando a função topic_words e exibimos esses resultados em um DataFrame do Pandas para uma melhor visualização e análise:
 ![image](https://github.com/thomz2/big-data-spark/assets/82160387/2d8eb776-2b72-48ee-b1db-d68f6afd3a11)
 
 ### [Distribuições](https://github.com/thomz2/big-data-spark/blob/main/analysis/eiffel_tower/distributions.ipynb)
