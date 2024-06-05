@@ -44,7 +44,7 @@ Calculamos o número de tweets por hora em cada dia, agrupando os tweets por hor
 
 Em seguida, apresentamos os resultados em um gráfico de linha, mostrando a distribuição temporal do número de tweets ao longo das horas do dia:
 
-### Figuras políticas
+### Figuras Políticas
 
 #### Principais sentenças relacionadas à palavra “Dilma”
 Para identificar as principais sentenças relacionadas à palavra "Dilma", carregamos os tweets relacionados à campanha eleitoral do dataset e filtramos aqueles que contêm a palavra-chave "Dilma", após isso, realizamos a limpeza e formatação dos dados, removendo caracteres especiais e stopwords da língua portuguesa. 
@@ -55,3 +55,32 @@ Após essa etapa, utilizamos a técnica de n-gramas para identificar sequências
 Utilizamos o mesmo processo para identificarmos as principais sentenças relacionadas à palavra "Aécio".
 
 Fizemos isso apenas trocando a constante `WORD` que era `dilma` para `aecio`:
+
+## 🗼 Reviews Relacionados à Visita da Torre Eiffel em Paris
+
+### Palavras e Expressões
+
+#### Palavras mais utilizadas nas avaliações
+Para encontrar as palavras mais utilizadas nas avaliações, nós seguimos um processo sistemático de limpeza e análise de texto. Primeiro, carregamos os dados das avaliações, focando nas colunas de título e texto. Removemos quaisquer valores ausentes para garantir a integridade dos dados. Em seguida, realizamos a limpeza das colunas, removendo caracteres especiais e mantendo apenas letras e números.
+
+Depois disso, tokenizamos o texto, transformando as frases em listas de palavras individuais. Para aumentar a precisão da análise, removemos as palavras comuns (stop words) que geralmente não carregam muito significado, como "e", "de", "a", etc. Em seguida, usamos a função explode para separar cada palavra em uma linha própria. Contamos a frequência de cada palavra usando a função groupBy e ordenamos os resultados em ordem decrescente de frequência. Por fim, plotamos as 10 palavras mais frequentes em um gráfico de barras:
+
+#### Expressões mais usadas nas avaliações
+Para encontrar as expressões mais usadas nas avaliações, começamos com o mesmo processo de limpeza e tokenização usado para as palavras individuais. Em seguida, criamos n-grams para identificar expressões comuns.
+
+Depois de gerar essas expressões, explodimos as listas de n-grams, assim como fizemos com as palavras individuais, para que cada expressão tivesse sua própria linha. Agrupamos essas expressões e contamos a frequência de cada uma, ordenando-as em ordem decrescente de contagem. Combinamos os resultados de n-grams de textos e títulos, agrupamos novamente e somamos as frequências para obter as expressões mais frequentes no conjunto de dados completo. Finalmente, apresentamos as 10 expressões mais usadas em um gráfico de barras:
+
+#### Principais tópicos relacionados às revisões
+Jaja sai
+
+### Distribuições
+
+#### Distribuição temporal das revisões
+Para mapearmos a distribuição temporal das revisões, começamos selecionando a coluna createdAt do DataFrame e removendo valores nulos. Ajustamos a política do parser de datas do Spark para "legacy" (importante) e convertemos as datas para o formato yyyy-MM, criando a coluna year_month. Em seguida, agrupamos as revisões por year_month e contamos o número de revisões para cada período, organizando os dados em ordem crescente.
+
+Com os dados agrupados, utilizamos seaborn e matplotlib para criar um gráfico de linhas que mostra a contagem de revisões ao longo do tempo. Esse gráfico revela padrões e sazonalidades nas revisões da Torre Eiffel, permitindo-nos identificar períodos de maior ou menor atividade nos comentários dos visitantes:
+
+#### Distribuição dos sentimentos das revisões
+Para analisar a distribuição dos sentimentos das revisões, utilizamos TextBlob para calcular a polaridade do sentimento de cada texto de revisão. Extraímos a coluna text do DataFrame, limpamos os dados convertendo para minúsculas e removendo caracteres não alfabéticos, e aplicamos uma função UDF para determinar a polaridade, que varia de -1 (negativo) a 1 (positivo).
+
+Convertemos o DataFrame resultante para um DataFrame do Pandas e criamos um histograma, o qual nos permite entender melhor a predominância de sentimentos positivos, negativos ou neutros nas reviews:
