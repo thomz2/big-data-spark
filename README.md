@@ -87,6 +87,7 @@ Depois de gerar essas expressões, explodimos as listas de n-grams, assim como f
 
 #### Principais tópicos relacionados às revisões
 Jaja sai
+![image](https://github.com/thomz2/big-data-spark/assets/82160387/2d8eb776-2b72-48ee-b1db-d68f6afd3a11)
 
 ### [Distribuições](https://github.com/thomz2/big-data-spark/blob/main/analysis/eiffel_tower/distributions.ipynb)
 
