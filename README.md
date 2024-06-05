@@ -27,7 +27,7 @@ Além disso, utilizamos os seguintes recursos/ferramentas:
 
 ## 🐤 Tweets da Campanha Eleitoral de 2014
 
-### Hashtags e Tweets
+### [Hashtags e Tweets](https://github.com/thomz2/big-data-spark/blob/main/analysis/election_campaign/hashtags_and_tweets.ipynb)
 
 #### Hashtags mais usadas pela manhã, tarde e noite:
 Para identificar as hashtags mais usadas pela manhã, tarde e noite, fazemos uma análise temporal dos tweets, categorizando-os em diferentes períodos do dia (manhã, tarde e noite) com base no horário em que foram postados. 
@@ -57,13 +57,13 @@ Em seguida, apresentamos os resultados em um gráfico de linha, mostrando a dist
 
 ### Figuras Políticas
 
-#### Principais sentenças relacionadas à palavra “Dilma”
+#### [Principais sentenças relacionadas à palavra “Dilma”](https://github.com/thomz2/big-data-spark/blob/main/analysis/election_campaign/dilma.ipynb)
 Para identificar as principais sentenças relacionadas à palavra "Dilma", carregamos os tweets relacionados à campanha eleitoral do dataset e filtramos aqueles que contêm a palavra-chave "Dilma", após isso, realizamos a limpeza e formatação dos dados, removendo caracteres especiais e stopwords da língua portuguesa. 
 
 Após essa etapa, utilizamos a técnica de n-gramas para identificar sequências de 3 a 5 palavras mais frequentes nos tweets, selecionando dessas, as 10 expressões mais comuns:
 ![image](https://github.com/thomz2/big-data-spark/assets/82160387/c0fe029f-2e82-4b78-91e6-037300b1ec35)
 
-#### Principais sentenças relacionadas à palavra “Aécio”
+#### [Principais sentenças relacionadas à palavra “Aécio”](https://github.com/thomz2/big-data-spark/blob/main/analysis/election_campaign/aecio.ipynb)
 Utilizamos o mesmo processo para identificarmos as principais sentenças relacionadas à palavra "Aécio".
 
 Fizemos isso apenas trocando a constante `WORD` que era `dilma` para `aecio`:
@@ -71,7 +71,7 @@ Fizemos isso apenas trocando a constante `WORD` que era `dilma` para `aecio`:
 
 ## 🗼 Reviews Relacionados à Visita da Torre Eiffel em Paris
 
-### Palavras e Expressões
+### [Palavras e Expressões](https://github.com/thomz2/big-data-spark/blob/main/analysis/eiffel_tower/most_frequent_words_and_expressions.ipynb)
 
 #### Palavras mais utilizadas nas avaliações
 Para encontrar as palavras mais utilizadas nas avaliações, nós seguimos um processo sistemático de limpeza e análise de texto. Primeiro, carregamos os dados das avaliações, focando nas colunas de título e texto. Removemos quaisquer valores ausentes para garantir a integridade dos dados. Em seguida, realizamos a limpeza das colunas, removendo caracteres especiais e mantendo apenas letras e números.
@@ -88,7 +88,7 @@ Depois de gerar essas expressões, explodimos as listas de n-grams, assim como f
 #### Principais tópicos relacionados às revisões
 Jaja sai
 
-### Distribuições
+### [Distribuições](https://github.com/thomz2/big-data-spark/blob/main/analysis/eiffel_tower/distributions.ipynb)
 
 #### Distribuição temporal das revisões
 Para mapearmos a distribuição temporal das revisões, começamos selecionando a coluna createdAt do DataFrame e removendo valores nulos. Ajustamos a política do parser de datas do Spark para "legacy" (importante) e convertemos as datas para o formato yyyy-MM, criando a coluna year_month. Em seguida, agrupamos as revisões por year_month e contamos o número de revisões para cada período, organizando os dados em ordem crescente.
